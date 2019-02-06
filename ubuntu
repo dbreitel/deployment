@@ -1,2 +1,2 @@
 kubectl run ubunutu --tty=true -i --image=ubuntu:18.04 top
-kubectl exec -it <container_name> sh
+kubectl exec -it <container_name> bash
