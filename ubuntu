@@ -1,0 +1,1 @@
+kubectl run ubunutu --tty=true -i --image=ubuntu:18.04 top
