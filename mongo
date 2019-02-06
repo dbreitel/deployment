@@ -1,0 +1,2 @@
+kubectl create deployment mongo --image=mongo:4.1.7
+kubectl scale deployment  mongo --replicase=2
