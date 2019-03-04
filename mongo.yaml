@@ -1,0 +1,17 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: my-mongo
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: my-mongo
+    spec:
+      containers:
+      - name: my-mongo
+        image: mongo:3.7
+        env:
+          - name: MY_PWD
+            value: "{aqua.scrt}"
