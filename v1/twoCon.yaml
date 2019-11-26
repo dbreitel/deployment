@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: two-containers
+  namespace: apps
+  labels:
+    run: two-containers
+spec:
+  selector:
+    matchLabels:
+      run: two-containers
+  template:
+    metadata:
+      labels:
+        run: two-containers
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.17
+        ports:
+        - containerPort: 80
+      - name: alpine
+        image: alpine:3.9
+        command: ["watch", "wget", "-qO-", "localhost"]
