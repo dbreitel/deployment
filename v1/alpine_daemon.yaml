@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: alpino
+  namespace: apps
+  labels:
+    app: alpino
+spec:
+  selector:
+    matchLabels:
+      app: alpino
+  template:
+    metadata:
+      labels:
+        app: alpino
+    spec:
+      containers:
+        - name: alpine
+          image: alpine:3.10
+          command: ["top"]
