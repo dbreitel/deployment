@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-hack
+  namespace: apps
+  labels:
+    run: my-hack
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+  selector:
+    run: my-hack
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-hack
+  namespace: apps
+  labels:
+    run: my-hack
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: my-hack
+  template:
+    metadata:
+      labels:
+        run: my-hack
+    spec:
+      containers:
+      - name: my-hack
+        image: diegob/hackme:1
+        ports:
+        - containerPort: 8080
