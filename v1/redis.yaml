@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: my-redis
-        image: redis:6
+        image: redis:6.2
         env:
           - name: CRED
             value: "secret"
