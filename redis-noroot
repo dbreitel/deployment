@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-noroot
+  namespace: apps
+  labels:
+    app: redis-noroot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-noroot
+  template:
+    metadata:
+      labels:
+        app: redis-noroot
+    spec:
+      containers:
+      - name: redis-noroot
+        image: diegob/redis:noroot
+        env:
+        - name: CRED
+          value: '{aqua.db.password}'
+        - name: DB_HASHI
+          value: '{myvault.kv/mysecret}'
