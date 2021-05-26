@@ -31,6 +31,6 @@ spec:
     spec:
       containers:
       - name: my-nginx
-        image: nginx:1.15
+        image: nginx:1.17
         ports:
         - containerPort: 80
