@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: badconfig
+  namespace: apps
+data:
+  password: "notReal" 
+  username: "really" 
+  phone: "555-5555"
